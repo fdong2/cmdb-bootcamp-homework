@@ -1,0 +1,74 @@
+  15 ###
+   1 ##feature-ontology ftp://ftp.flybase.org/releases/FB2014_03/precomputed_files/ontologies/so.obo.zip
+   1 ##genome-build FlyBase r5.57
+   1 ##gff-version 3
+   1 ##sequence-region 2L 1 23011546
+   1 ##sequence-region 2LHet 1 368874
+   1 ##sequence-region 2R 1 21146710
+   1 ##sequence-region 2RHet 1 3288763
+   1 ##sequence-region 3L 1 24543559
+   1 ##sequence-region 3LHet 1 2555493
+   1 ##sequence-region 3R 1 27905055
+   1 ##sequence-region 3RHet 1 2517509
+   1 ##sequence-region 4 1 1351859
+   1 ##sequence-region U 1 10049039
+   1 ##sequence-region Uextra 1 29004657
+   1 ##sequence-region X 1 22422829
+   1 ##sequence-region XHet 1 204114
+   1 ##sequence-region YHet 1 347040
+   1 ##sequence-region dmel_mitochondrion_genome 1 19519
+   1 ##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7227
+ 973 BAC_cloned_genomic_insert
+108709 CDS
+   1 DNA_motif
+127571 RNAi_reagent
+185819 TF_binding_site
+12454 TSS
+6653 breakpoint
+   1 chromosome
+  14 chromosome_arm
+5771 chromosome_band
+  79 complex_substitution
+ 818 deletion
+ 103 enhancer
+83955 exon
+71382 exon_junction
+36888 five_prime_UTR
+17294 gene
+  48 insertion_site
+7683 insulator
+71024 intron
+30306 mRNA
+3658716 match
+8067026 match_part
+   7 mature_peptide
+ 304 miRNA
+2005 modified_RNA_base_feature
+2462 ncRNA
+254584 oligonucleotide
+8069 origin_of_replication
+18819 orthologous_region
+613059 orthologous_to
+14095 pcr_product
+4917 point_mutation
+  98 polyA_site
+ 238 pre_miRNA
+30305 protein
+1401 protein_binding_site
+ 239 pseudogene
+ 161 rRNA
+7153 region
+2064 regulatory_region
+9409 repeat_region
+ 688 rescue_fragment
+ 216 sequence_variant
+ 537 silencer
+  31 snRNA
+ 288 snoRNA
+ 978 syntenic_region
+ 314 tRNA
+ 580 tandem_repeat
+27408 three_prime_UTR
+5603 transposable_element
+65458 transposable_element_insertion_site
+  22 uncharacterized_change_in_nucleotide_sequence
