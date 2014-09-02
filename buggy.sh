@@ -20,6 +20,6 @@ for i in {1..24}
 do
   echo gunzip $FASTQ_DIR/$SAMPLE_PREFIX$i\.fastq.gz	
   echo fastqc $FASTQ_DIR/$SAMPLE_PREFIX$i\.fastq -o $OUTPUT_DIR
-  echo tophat -p$CORES -G $OUTPUT_DIR/ANNOTATION -o $OUTPUT_DIR $GENOME_DIR/$GENOME_PREFIX $FASTQ_DIR/$SAMPLE_PREFIX$i\.fastq
-  echo cufflinks -p$CORES -G $OUTPUT_DIR/ANNOTATION -o #need .sam file?
+  echo tophat -p$CORES -G $OUTPUT_DIR/ANNOTATION -o tophat$i $GENOME_DIR/$GENOME_PREFIX $FASTQ_DIR/$SAMPLE_PREFIX$i\.fastq
+  echo cufflinks -p$CORES -G $OUTPUT_DIR/ANNOTATION -o cufflinks_out tophat$i/accepted_hits.bam
 done
