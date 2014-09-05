@@ -6,6 +6,40 @@ From .fa of clout, finds 100 longest transcripts, open reading frames, and prote
 import sys
 import pandas as pd
 
+#Functions used
+#extracts ORFs
+def extract(seq):
+   # print "here"
+    out = {}
+    index = 0
+    tr = 0
+    for base in seq:
+        if seq[index:index+3] in start:
+            out[index] = ""
+            for codon in thirds(seq[index:]):
+                if codon in stop:
+                    index += 1
+                    break
+                for acid, code in aa.iteritems():
+                    if codon in code:
+                        out[index] += acid
+                        tr = 1
+                if tr == 0:
+                    out[index] += "X"
+        index += 1
+    return out
+    
+#iterates by three letters            
+def thirds(ext):
+    #print "entered"
+    three = ""
+    for base in ext:
+        three += base
+        if len(three) == 3:
+            yield three
+            three = ""
+    return
+
 #important variables
 start = ["ATG", "TAC"]
 stop = ["TAG", "TAA", "TGA", "ATC", "ATT", "ACT"]
@@ -42,6 +76,16 @@ toplen = lengths[:100] #100 longest transcripts reference numbers
 top100 = {}
 for ref, long in toplen: # gets 100 longest transcripts
     top100[ref] = transcripts[ref]
+    
+#Print 100 longest transcripts
+top100f = open("top100.fa", "w")
+for ref, seq in top100.iteritems():
+    top100f.write(">"+ref+"\n")
+    s = seq
+    while len(s) > 0:
+        top100f.write(s[:61] + "\n")
+        s = s[61:]
+        
 
 #Makes complements of transcripts
 conversion = {"A":"T", "T":"A", "G":"C", "C":"G", "N":"N" }
@@ -84,39 +128,7 @@ for ref, seq in top_c100.iteritems():
         transcript_c_r.append((ref, x))
 cr = pd.DataFrame(transcript_c_r, columns = vertical)
 
-#Functions used
-#extracts ORFs
-def extract(seq):
-   # print "here"
-    out = {}
-    index = 0
-    tr = 0
-    for base in seq:
-        if seq[index:index+3] in start:
-            out[index] = ""
-            for codon in thirds(seq[index:]):
-                if codon in stop:
-                    index += 1
-                    break
-                for acid, code in aa.iteritems():
-                    if codon in code:
-                        out[index] += acid
-                        tr = 1
-                if tr == 0:
-                    out[index] += "X"
-        index += 1
-    return out
-    
-#iterates by three letters            
-def thirds(ext):
-    #print "entered"
-    three = ""
-    for base in ext:
-        three += base
-        if len(three) == 3:
-            yield three
-            three = ""
-    return
+
 
 
 print f
