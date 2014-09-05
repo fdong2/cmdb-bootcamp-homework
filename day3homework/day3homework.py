@@ -6,9 +6,13 @@ From .fa of clout, finds 100 longest transcripts, open reading frames, and prote
 import sys
 import pandas as pd
 
+#Code begins line 55
+
 #Functions used
+
 #extracts ORFs
 def extract(seq):
+    """Scans for start codon. returns a dictionary with index as keys and orf sequences as values when stop codon encountered"""
    # print "here"
     out = {}
     index = 0
@@ -41,8 +45,9 @@ def thirds(ext):
     return
 
 #important variables
-start = ["ATG", "TAC"]
-stop = ["TAG", "TAA", "TGA", "ATC", "ATT", "ACT"]
+start = ["ATG"] # start codons
+stop = ["TAG", "TAA", "TGA", "ATC", "ATT", "ACT"] #stop codons
+#amino acid dictionary
 aa = {"I": ["ATT", "ATC", "ATA"], "L": ["CTT", "CTC", "CTA", "CTG", "TTA", "TTG"], 
 "V":["GTT", "GTC", "GTA", "GTG"], "F": ["TTT", "TTC"], "M":"ATG", "C":["TGT", "TGC"],
 "A":["GCT", "GCC", "GCA", "GCG"], "G":["GGT", "GGC", "GGA", "GGG"], "P":['CCT', 'CCC', 
@@ -88,7 +93,7 @@ for ref, seq in top100.iteritems():
         
 
 #Makes complements of transcripts
-conversion = {"A":"T", "T":"A", "G":"C", "C":"G", "N":"N" }
+conversion = {"A":"T", "T":"A", "G":"C", "C":"G", "N":"N" } #just use maketrans!!!!
 top_c100 = {}
 for ref, seq in top100.iteritems():
     top_c100[ref] = ""
